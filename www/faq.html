@@ -1,0 +1,54 @@
+        <div class="green_header mobile-grid-100">
+            <a href="javascript:void(0);"><img src="images/menu_bar.png" class="menu_click" alt="" /></a>
+            <span class="green_text1">FAQs</span>
+            <img src="images/header-peacock.png" class="peacock" alt="" />
+        </div>
+
+        <div  class="mobile-grid-90 mobile-prefix-5 faq-block">	
+        <div id="accordion">
+            <!-- <p class="question">Lorem Ipsum is simply dummy text of the printing.</p>
+            <div>
+                <p class="answer">
+                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna.
+                </p>
+            </div>
+              <p class="question">Lorem Ipsum is simply dummy text of the printing.</p>
+
+            <div>
+                <p class="answer">
+                    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+                </p>
+            </div>
+              <p class="question">Lorem Ipsum is simply dummy text of the printing.</p>
+
+            <div>
+                <p class="answer">
+                    Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est.
+                </p>
+            </div> -->
+        </div>
+        </div>
+
+
+        <!--<div class="green_blank" style="position:relative;"></div>-->
+    <script type="text/javascript">
+            $('.menu_click').click(function(){
+                event.stopPropagation();
+                $('.menu').animate({ "left": "0" }, 100 );
+            });
+            
+            $('.container').click(function(){
+                $('.menu').animate({ "left": "-90%" }, 100 );
+            });
+
+
+        (function($) {
+            'use strict';
+            window.sr = new scrollReveal({
+                reset: true,
+                move: '50px',
+                mobile: true
+            });
+        })();
+
+    </script>
