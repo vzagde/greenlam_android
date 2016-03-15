@@ -23,9 +23,9 @@
 				<option value="Udaipur">Udaipur</option>
 				<option value="Jaipur">Jaipur</option>
 			</select>
-			<input data-sr="wait 0.4s and then ease-in-out 100px" type="text" name="pin" onfocus="myFunction()" id="pin" placeholder="Pin Code" class="inpt">
-			<input data-sr="wait 0.6s and then ease-in-out 100px" type="text" name="number" onfocus="myFunction()" id="number" placeholder="Contact No." class="inpt">
-			<input data-sr="wait 0.7s and then ease-in-out 100px" type="email" name="email" onfocus="myFunction()" id="email" placeholder="Email ID" class="inpt">
+			<input data-sr="wait 0.4s and then ease-in-out 100px" type="text" name="pin" onfocusout="myFunctionout()" onfocus="myFunction()" id="pin" placeholder="Pin Code" class="inpt">
+			<input data-sr="wait 0.6s and then ease-in-out 100px" type="text" name="number" onfocusout="myFunctionout()" onfocus="myFunction()" id="number" placeholder="Contact No." class="inpt">
+			<input data-sr="wait 0.7s and then ease-in-out 100px" type="email" name="email" onfocusout="myFunctionout()" onfocus="myFunction()" id="email" placeholder="Email ID" class="inpt">
 		</div>
 		<a href="javascript:void(0);" onclick="register_user()" class="proceed_click">Done</a>
 		<div class="green_blank"></div>
@@ -40,10 +40,19 @@
 		});
 
 		function myFunction(){
+			$(".container").css("height", "80%");
 			$(".container").css("overflow", "scroll");
 			$(".proceed_click").css("padding", "2% 40%");
 			$(".proceed_click").css("position", "relative");
 			$(".green_blank").css("position", "relative");
+		}
+
+		function myFunctionout(){
+			$(".container").css("height", "100%");
+			$(".container").css("overflow", "auto");
+			$(".proceed_click").css("padding", "2% 0%");
+			$(".proceed_click").css("position", "absolute");
+			$(".green_blank").css("position", "absolute");
 		}
 
 		// $("#pin, #number, #email").touchend(function(){
