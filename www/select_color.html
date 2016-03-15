@@ -98,17 +98,20 @@
 										'<img src="images/g2.png" class="share_set_get" onclick="set_cam('+id+')">'+
 										'<img src="images/g3.png" class="share_set_get" width="23% !important" onclick="get_cam('+id+')">'+
 										'</div></div></div>';
+
 							$(this).parent().parent().append(html);
 							$(".lam_click_event").parent().parent().removeClass("og-expanded");
 							$(this).parent().parent().addClass("og-expanded");
 
-							$('.og-grid a[href^="#"]').click(function(event) {
-									var id = $(this).attr("href");
-									var offset = 0;
-									var target = $(id).offset().top - offset;
-									$('html, body').animate({scrollTop:target}, 1000);
-									event.preventDefault();
-								});
+							// $('.og-grid a[href^="#"]').click(function(event) {
+							// 		var id = $(this).attr("href");
+							// 		var offset = 0;
+							// 		var target = $(id).offset().top - offset;
+							// 		$('html, body').animate({scrollTop:target}, 1000);
+							// 		event.preventDefault();
+							// 	});
+							// $("#laminates").animate({
+							// 	scrollTop: $(".og-expander").offset().top}, "slow");
 
 							$(".og-close").click(function(){
 								$(".lam_click_event").removeClass("og-expanded");

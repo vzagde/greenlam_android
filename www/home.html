@@ -122,14 +122,17 @@
 							$(this).parent().parent().append(html);
 							$(".lam_click_event").parent().parent().removeClass("og-expanded");
 
+							// $("#laminates").animate({
+							// 	scrollTop: $(".og-expander").offset().top}, "slow");							
+
 							$(this).parent().parent().addClass("og-expanded");
-										$('.og-grid a[href^="#"]').click(function(event) {
-												var id = $(this).attr("href");
-												var offset = 0;
-												var target = $(id).offset().top - offset;
-												$('html, body').animate({scrollTop:target}, 1000);
-												event.preventDefault();
-											});
+										// $('.og-grid a[href^="#"]').click(function(event) {
+										// 		var id = $(this).attr("href");
+										// 		var offset = 0;
+										// 		var target = $(id).offset().top - offset;
+										// 		$('html, body').animate({scrollTop:target}, 1000);
+										// 		event.preventDefault();
+										// 	});
 
 							$(".og-close").click(function(){
 								$(".lam_click_event").removeClass("og-expanded");

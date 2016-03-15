@@ -1,3 +1,4 @@
+
 	<div class="green_header mobile-grid-100">
 		<a href="javascript:void(0);" class="green_text" onclick="goto_home()"><img src="images/back1.png" class="back1" alt="" />Color Selector</a>
 		<img src="images/header-peacock.png" class="peacock" alt="" />
@@ -80,13 +81,15 @@
 										'<img src="images/g3.png" class="share_set_get" width="23% !important" onclick="get('+id+')">'+
 										'</div></div></div>';
 
-										$('.og-grid a[href^="#"]').click(function(event) {
-												var id = $(this).attr("href");
-												var offset = 0;
-												var target = $(id).offset().top - offset;
-												$('html, body').animate({scrollTop:target}, 1000);
-												event.preventDefault();
-											});
+										// $('.og-grid a[href^="#"]').click(function(event) {
+										// 		var id = $(this).attr("href");
+										// 		var offset = 0;
+										// 		var target = $(id).offset().top - offset;
+										// 		$('html, body').animate({scrollTop:target}, 1000);
+										// 		event.preventDefault();
+										// 	});
+								// $("#laminates").animate({
+								// 	scrollTop: $(".og-expander").offset().top}, "slow");
 
 										$(this).parent().parent().append(html);
 							$(".lam_click_event").parent().parent().removeClass("og-expanded");
