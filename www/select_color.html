@@ -64,7 +64,7 @@
 						var html = '<ul id="og-grid" class="og-grid">';
 						$.each(response, function(index, value){
 							html += '<li class="'+value.type+' filters lam_click_event" data-content="'+value.content+'" data-id="'+value.id+'" data-image="'+value.image+'" data-title="'+value.title+'">'+
-								'<a href="#pop_'+id+'" data-largesrc="'+img_url+value.image+'" data-title="'+value.title+'" data-description="'+value.content+'">'+
+								'<a href="javascript:void(0);" data-largesrc="'+img_url+value.image+'" data-title="'+value.title+'" data-description="'+value.content+'">'+
 									'<img src="'+img_url+value.image+'" class="border_click" style="height: 100px" data-lamcontent="'+value.content+'" data-lamid="'+value.id+'" data-lamimage="'+value.image+'" data-lamtitle="'+value.title+'" />'+
 								'</a>'+
 							'</li>';
@@ -85,7 +85,7 @@
 							var image = $(this).data("lamimage");
 							$(".og-expander").remove();
 							$(".lam_click_event").removeClass("og-expanded");
-							var html = '<div id="pop_'+id+'" class="og-expander" style="height: auto !important;">'+
+							var html = '<div class="og-expander" style="height: auto !important;">'+
 										'<div class="og-expander-inner">'+
 										'<span class="og-close"></span>'+
 										'<div class="og-fullimg">'+
@@ -134,7 +134,7 @@
 			function gotothome(){
 				page_id = "#home";
 				$("#select_color").fadeOut();
-				$(page_id).fadeIn();
+				$("#home").fadeIn();
 			}
 
 			function share_cam(id){
