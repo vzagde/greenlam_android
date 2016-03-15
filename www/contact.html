@@ -13,7 +13,7 @@
 			<a href="" onclick="callUS()"><img src="images/call-icon.png"></a>
 		</div>
 		
-		<div class="mobile-grid-100 contact-no">
+		<div onclick="callUS()" class="mobile-grid-100 contact-no">
 			<h3>1800-00-888</h3>
 		</div>
 		
@@ -21,14 +21,14 @@
 		
 		<div class="green_blank" ></div>	
 	<script type="text/javascript">
-			$('.menu_click').click(function(){
-				event.stopPropagation();
-				$('.menu').animate({ "left": "0" }, 100 );
-			});
-			
-			$('.container').click(function(){
-				$('.menu').animate({ "left": "-90%" }, 100 );
-			});
+		$('.menu_click').click(function(){
+			event.stopPropagation();
+			$('.menu').animate({ "left": "0" }, 100 );
+		});
+
+		$('.menu').click(function(){
+			$('.menu').animate({ "left": "-300px" }, 100 );
+		});
 
 		(function($) {
 	

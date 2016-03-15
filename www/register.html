@@ -23,9 +23,9 @@
 				<option value="Udaipur">Udaipur</option>
 				<option value="Jaipur">Jaipur</option>
 			</select>
-			<input data-sr="wait 0.4s and then ease-in-out 100px" type="text" name="pin" id="pin" placeholder="Pin Code" class="inpt">
-			<input data-sr="wait 0.6s and then ease-in-out 100px" type="text" name="number" id="number" placeholder="Contact No." class="inpt">
-			<input data-sr="wait 0.7s and then ease-in-out 100px" type="email" name="email" id="email" placeholder="Email ID" class="inpt">
+			<input data-sr="wait 0.4s and then ease-in-out 100px" type="text" name="pin" onfocus="myFunction()" id="pin" placeholder="Pin Code" class="inpt">
+			<input data-sr="wait 0.6s and then ease-in-out 100px" type="text" name="number" onfocus="myFunction()" id="number" placeholder="Contact No." class="inpt">
+			<input data-sr="wait 0.7s and then ease-in-out 100px" type="email" name="email" onfocus="myFunction()" id="email" placeholder="Email ID" class="inpt">
 		</div>
 		<a href="javascript:void(0);" onclick="register_user()" class="proceed_click">Done</a>
 		<div class="green_blank"></div>
@@ -33,12 +33,26 @@
         $('.menu_click').click(function(){
             event.stopPropagation();
             $('.menu').animate({ "left": "0" }, 500 );
-            var timer = 100;
-            $(".menu_li").each(function(){
-              $(this).stop().delay(timer).animate({"left": "0"}, 400);
-              timer += 200;
-            });
         });
+		
+		$('.menu').click(function(){
+			$('.menu').animate({ "left": "-300px" }, 100 );
+		});
+
+		function myFunction(){
+			$(".container").css("overflow", "scroll");
+			$(".proceed_click").css("padding", "2% 40%");
+			$(".proceed_click").css("position", "relative");
+			$(".green_blank").css("position", "relative");
+		}
+
+		// $("#pin, #number, #email").touchend(function(){
+		// 	$(".container").css("height", "100%");
+		// 	$(".container").css("overflow", "auto");
+		// 	$(".proceed_click").css("padding", "2% 0%");
+		// 	$(".proceed_click").css("position", "absolute");
+		// 	$(".green_blank").css("position", "absolute");
+		// })
 
 		(function($) {
 	
@@ -140,7 +154,7 @@
 				                		Lockr.set('user_token', response.token);
 				                		token = response.token;
 				                		id = response.id;
-				                		$("#menu_saved, #menu_myselection").show();
+				                		$("#menu_saved, #menu_myselection, .logout_text").show();
 				                		$("#profile_image").css("background", "url('"+response.profile+"') no-repeat");
 				                		$("#profile_bg").css("background", "url('"+response.profile+"') no-repeat");
 				                		$(".login_text").hide();
@@ -195,7 +209,7 @@
 				                		Lockr.set('user_token', response.token);
 				                		token = response.token;
 				                		id = response.id;
-				                		$("#menu_saved, #menu_myselection").show();
+				                		$("#menu_saved, #menu_myselection, .logout_text").show();
 				                		$("#profile_image").css("background", "url('"+response.profile+"') no-repeat");
 				                		$("#profile_bg").css("background", "url('"+response.profile+"') no-repeat");
 				                		$(".login_text").hide();
@@ -236,7 +250,7 @@
 	                		Lockr.set('user_token', response.token);
 	                		token = response.token;
 	                		id = response.id;
-	                		$("#menu_saved, #menu_myselection").show();
+	                		$("#menu_saved, #menu_myselection, .logout_text").show();
 	                		$("#profile_image").css("background", "url('"+response.profile+"') no-repeat");
 	                		$("#profile_bg").css("background", "url('"+response.profile+"') no-repeat");
 	                		$(".login_text").hide();

@@ -28,8 +28,8 @@
 				$('.menu').animate({ "left": "0" }, 100 );
 			});
 			
-			$('.container').click(function(){
-				$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').click(function(){
+				$('.menu').animate({ "left": "-300px" }, 100 );
 			});
 
 		(function($) {
@@ -91,7 +91,7 @@
 	                		Lockr.set('user_token', response.token);
 	                		token = response.token;
 	                		id = response.id;
-	                		$("#menu_saved, #menu_myselection").show();
+	                		$("#menu_saved, #menu_myselection, .logout_text").show();
 	                		$("#profile_image").css("background", "url('"+response.profile+"') no-repeat");
 	                		$("#profile_bg").css("background", "url('"+response.profile+"') no-repeat");
 	                		$(".login_text").hide();
@@ -169,7 +169,7 @@
 	        		Lockr.set('user_token', response.token);
 	        		token = response.token;
 	        		id = response.id;
-	        		$("#menu_saved, #menu_myselection").show();
+	        		$("#menu_saved, #menu_myselection, .logout_text").show();
 	        		$("#profile_image").css("background", "url('"+response.profile+"') no-repeat");
 	        		$("#profile_bg").css("background", "url('"+response.profile+"') no-repeat");
 	        		$(".login_text").hide();

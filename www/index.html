@@ -66,6 +66,7 @@
 					<div class="circle" id="profile_image" style="background:url('images/user.png') no-repeat; background-size:cover; background-position:center;"></div>
 				</div>	
 				<a href="javascript:void(0);" onclick="user_login()" class="login_text">Login / Sign Up</a>
+				<a href="javascript:void(0);" onclick="user_login()" class="login_text logout_text">Login / Sign Up</a>
 			</div>
 			<div class="menu_sub mobile-grid-100">
 				<ul class="menu_ul">
@@ -89,7 +90,7 @@
 			// });
 			
 			// $('.container').click(function(){
-			// 	$('.menu').animate({ "left": "-90%" }, 100 );
+			// 	$('.menu').animate({ "left": "-300px" }, 100 );
 			// });
 		</script>
 		<!--menu-->
@@ -135,7 +136,7 @@
 	</script>
 	<script type="text/javascript">
 		$(page_id).fadeIn();
-		$("#menu_saved, #menu_myselection").hide();
+		$("#menu_saved, #menu_myselection, .logout_text").hide();
 		
 		(function($) {
 			'use strict';
@@ -146,6 +147,16 @@
 			});
 		
 		})();
+
+		$(".logout_text").click(function(){
+			token = '';
+			id = '';
+			$("#menu_saved, #menu_myselection, .logout_text").hide();
+			$(".login_text").show();
+	    	$(".main_section").fadeOut();
+			$('.menu').animate({ "left": "-300px" }, 100 );
+			$("#home").fadeIn();
+		})
 
 	    function backdisabled(){
 	        document.addEventListener("backbutton", onBackKeyDown, false);
@@ -161,13 +172,13 @@
 
 	    $("#menu_home").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			$("#home").fadeIn();
 	    })
 
 	    $("#menu_laminates").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 
 			load_catalogue_data();
 			page_back_id = "#catalogue";
@@ -176,37 +187,37 @@
 
 	    $("#menu_saved").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			load_saved_laminates();
 	    })
 
 	    $("#menu_myselection").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			load_my_selections();
 	    })
 
 	    $("#menu_offers").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			load_offers();
 	    })
 
 	    $("#menu_talktous").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			$("#contact").fadeIn();
 	    })
 
 	    $("#menu_faqs").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			load_faqs();
 	    })
 
 	    $("#menu_feedback").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			$("#feedback").fadeIn();
 			$(":input, #feedback_submit").css("transform", "translateY(0px) scale(0.95)");
 			$(":input, #feedback_submit").animate({"opacity" : "1"});
@@ -214,23 +225,23 @@
 
 	    $("#menu_settings").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			$("#feedback").fadeIn();
 	    })
 
 	    $("#menu_aboutus").click(function(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			$("#about_us").fadeIn();
 	    })
 		
-		$('.container').click(function(){
-			$('.menu').animate({ "left": "-90%" }, 100 );
+		$('.menu').click(function(){
+			$('.menu').animate({ "left": "-300px" }, 100 );
 		});
 
 	    function user_login(){
 	    	$(".main_section").fadeOut();
-			$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').animate({ "left": "-300px" }, 100 );
 			$("#login").fadeIn();
 	    }
 

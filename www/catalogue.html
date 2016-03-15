@@ -217,13 +217,16 @@
 				<img src="images/cross.png" class="shr_close" alt="" />
 				<p class="share_text">Share via</p>
 				<div class="mobile-grid-100">
-					<div class="mobile-grid-100"><img src="images/s1.png" class="s_1" alt="" /></div>
-					<div class="mobile-grid-100"><img src="images/s2.png" class="s_1" alt="" /></div>
-					<div class="mobile-grid-100"><img src="images/s3.png" class="s_1" alt="" /></div>
-					<div class="mobile-grid-100"><img src="images/s4.png" class="s_1" alt="" /></div>
+					<div class="mobile-grid-100"><img src="images/s1.png" onclick="share_mail_cat()" class="s_1" alt="" /></div>
+					<div class="mobile-grid-100"><img src="images/s2.png" onclick="share_facebook_cat()" class="s_1" alt="" /></div>
+					<div class="mobile-grid-100"><img src="images/s3.png" onclick="share_whatsapp_cat()" class="s_1" alt="" /></div>
+					<div class="mobile-grid-100"><img src="images/s4.png" onclick="share_message_cat()" class="s_1" alt="" /></div>
 				</div>
 			</div>
 		</div>
+
+
+
 		
 		<a href="javascript:void(0);" onclick="gotoEdgebandFromCatelogue()" class="proceed_click">Proceed to Select Laminate</a>
 		<div class="green_blank"></div>
@@ -243,6 +246,46 @@
 		$(function() {
 			Grid.init();
 		});
+
+		function share_mail_cat(){
+			$.ajax({
+				url : base_url+'index.php/api/get_laminates_for_share',
+				type: 'POST',
+				dataType : 'JSON',
+				crossDomain: true,
+				data: {id: lam_share_set_get},
+				success : function(response){
+					window.open('mailto:?&body='+response.content, '_system');
+				}
+			})
+		}
+		function share_facebook_cat(){
+			window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.greenlam.com/', '_system');
+		}
+		function share_whatsapp_cat(){
+			$.ajax({
+				url : base_url+'index.php/api/get_laminates_for_share',
+				type: 'POST',
+				dataType : 'JSON',
+				crossDomain: true,
+				data: {id: lam_share_set_get},
+				success : function(response){
+					window.open('whatsapp://send?text='+response.content, '_system');
+				}
+			})
+		}
+		function share_message_cat(){
+			$.ajax({
+				url : base_url+'index.php/api/get_laminates_for_share',
+				type: 'POST',
+				dataType : 'JSON',
+				crossDomain: true,
+				data: {id: lam_share_set_get},
+				success : function(response){
+					window.open('sms:?body='+response.content, '_system');
+				}
+			})
+		}
 
 		function gotoEdgebandFromCatelogue(){
 			if (lam_id == '') {

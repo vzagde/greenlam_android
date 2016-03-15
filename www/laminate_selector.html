@@ -41,15 +41,15 @@
 			</div>
 		</div>
 		
-		<div class="ovr_lay hide">
+		<div class="ovr_lay lam_share hide">
 			<div class="share_overlay">
 				<img src="images/cross.png" class="shr_close" alt="" />
 				<p class="share_text">Share via</p>
 				<div class="mobile-grid-100">
-					<div class="mobile-grid-100"><img src="images/s1.png" class="s_1" alt="" /></div>
-					<div class="mobile-grid-100"><img src="images/s2.png" class="s_1" alt="" /></div>
-					<div class="mobile-grid-100"><img src="images/s3.png" class="s_1" alt="" /></div>
-					<div class="mobile-grid-100"><img src="images/s4.png" class="s_1" alt="" /></div>
+					<div class="mobile-grid-100"><img src="images/s1.png" onclick="share_mail()" class="s_1" alt="" /></div>
+					<div class="mobile-grid-100"><img src="images/s2.png" onclick="share_facebook()" class="s_1" alt="" /></div>
+					<div class="mobile-grid-100"><img src="images/s3.png" onclick="share_whatsapp()" class="s_1" alt="" /></div>
+					<div class="mobile-grid-100"><img src="images/s4.png" onclick="share_message()" class="s_1" alt="" /></div>
 				</div>
 			</div>
 		</div>
@@ -68,6 +68,46 @@
 			});
 	
 		})();
+
+		function share_mail(){
+			$.ajax({
+				url : base_url+'index.php/api/get_laminates_for_share',
+				type: 'POST',
+				dataType : 'JSON',
+				crossDomain: true,
+				data: {id: lam_share_set_get},
+				success : function(response){
+					window.open('mailto:?&body='+response.content, '_system');
+				}
+			})
+		}
+		function share_facebook(){
+			window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.greenlam.com/', '_system');
+		}
+		function share_whatsapp(){
+			$.ajax({
+				url : base_url+'index.php/api/get_laminates_for_share',
+				type: 'POST',
+				dataType : 'JSON',
+				crossDomain: true,
+				data: {id: lam_share_set_get},
+				success : function(response){
+					window.open('whatsapp://send?text='+response.content, '_system');
+				}
+			})
+		}
+		function share_message(){
+			$.ajax({
+				url : base_url+'index.php/api/get_laminates_for_share',
+				type: 'POST',
+				dataType : 'JSON',
+				crossDomain: true,
+				data: {id: lam_share_set_get},
+				success : function(response){
+					window.open('sms:?body='+response.content, '_system');
+				}
+			})
+		}
 
 		$('.lam_2').click(function(){
 			$('.green_animate').animate({"left": "50%"}, 300);

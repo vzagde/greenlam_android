@@ -30,6 +30,7 @@ $(document).ready(function(){
 		$('.ovr_lay').fadeOut();
 	});
 
+
 	/* $('.container').click(function(){
 		 $('.menu_li').animate({"left": "-80%"}, 100);
 		$('.menu').animate({ "left": "-90%" }, 200 );

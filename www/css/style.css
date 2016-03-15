@@ -187,7 +187,7 @@ a{
 	height:100%;
 	top:0;
 	/* left:-90%; */
-	left:-90%;
+	left:-300px;
 	z-index:999;
 	background:#fff;
 	-webkit-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.75);
@@ -860,4 +860,11 @@ font-family: 'source_sans_proregular';
 
 .width_15{
 	width:15%;
+}
+
+.c_p{
+	position:absolute;
+	top:10%;
+	left:10%;
+	width:7%;
 }

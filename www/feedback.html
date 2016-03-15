@@ -22,8 +22,8 @@
 				$('.menu').animate({ "left": "0" }, 100 );
 			});
 			
-			$('.container').click(function(){
-				$('.menu').animate({ "left": "-90%" }, 100 );
+			$('.menu').click(function(){
+				$('.menu').animate({ "left": "-300px" }, 100 );
 			});
 
 
@@ -43,7 +43,7 @@
 	        var em_val = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 			if (!$("#feedback_content").val()) {
-				alert("You haven't Entered Feedback Content");
+				alert("Please Enter Your Message");
 			} else if (!$("#feedback_name").val()) {
 				alert("Please Enter Your Name");
 			} else if (!$("#feedback_email").val()) {

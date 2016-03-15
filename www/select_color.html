@@ -9,8 +9,9 @@
 		</div>
 		
 		<div style="overflow:hidden;" class="color_box mobile-grid-100 pad0">
-			<div data-sr="wait 0.1s and then ease-in-out 100px" id="cameraImgdiv" class="mobile-grid-100 pad0">
+			<div data-sr="wait 0.1s and then ease-in-out 100px" id="cameraImgdiv" class="mobile-grid-100 posr pad0">
 				<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" class="wdh" id="cameraImg" onclick="getColor()" alt="" />
+				<img src="images/color-picker.png" class="c_p" id="clrpickr" alt="" />
 			</div>
 		</div>
 		
@@ -31,9 +32,9 @@
 		        }
 		        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
 		        var clr =  'rgba(' + pixelData[0] + ',' + pixelData[1] + ',' + pixelData[2] + ',' + pixelData[3]/255 + ')';
-
-		        console.log(clr);
 		        $('#disp_color').css("background-color", clr );
+		        $("#clrpickr").css('top', event.offsetY);
+		        $("#clrpickr").css('left', event.offsetX);
 			}
 
 			function rgbToHex(color) {
@@ -63,7 +64,7 @@
 						var html = '<ul id="og-grid" class="og-grid">';
 						$.each(response, function(index, value){
 							html += '<li class="'+value.type+' filters lam_click_event" data-content="'+value.content+'" data-id="'+value.id+'" data-image="'+value.image+'" data-title="'+value.title+'">'+
-								'<a href="javascript:void(0);" data-largesrc="'+img_url+value.image+'" data-title="'+value.title+'" data-description="'+value.content+'">'+
+								'<a href="#pop_'+id+'" data-largesrc="'+img_url+value.image+'" data-title="'+value.title+'" data-description="'+value.content+'">'+
 									'<img src="'+img_url+value.image+'" class="border_click" style="height: 100px" data-lamcontent="'+value.content+'" data-lamid="'+value.id+'" data-lamimage="'+value.image+'" data-lamtitle="'+value.title+'" />'+
 								'</a>'+
 							'</li>';
@@ -84,7 +85,7 @@
 							var image = $(this).data("lamimage");
 							$(".og-expander").remove();
 							$(".lam_click_event").removeClass("og-expanded");
-							var html = '<div class="og-expander" style="height: auto !important;">'+
+							var html = '<div id="pop_'+id+'" class="og-expander" style="height: auto !important;">'+
 										'<div class="og-expander-inner">'+
 										'<span class="og-close"></span>'+
 										'<div class="og-fullimg">'+
@@ -100,6 +101,14 @@
 							$(this).parent().parent().append(html);
 							$(".lam_click_event").parent().parent().removeClass("og-expanded");
 							$(this).parent().parent().addClass("og-expanded");
+
+							$('.og-grid a[href^="#"]').click(function(event) {
+									var id = $(this).attr("href");
+									var offset = 0;
+									var target = $(id).offset().top - offset;
+									$('html, body').animate({scrollTop:target}, 1000);
+									event.preventDefault();
+								});
 
 							$("#laminates").animate({
 							scrollTop: $(".og-expander").offset().top}, "slow");
@@ -130,6 +139,7 @@
 
 			function share_cam(id){
 				lam_share_set_get = id;
+				$('.ovr_lay').fadeIn();
 			}
 
 			function set_cam(id){
