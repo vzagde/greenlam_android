@@ -15,13 +15,13 @@
 		<img src="images/login-hr-line.png" class="or_line" alt="" />
 		
 		<div class="mobile-grid-80 posr mobile-prefix-10">
-			<input type="text" name="name" placeholder="Name" id="name_email" class="inpt">
-			<input type="password" name="password" placeholder="Password" id="password_login" class="inpt">
+			<input type="text" name="name" placeholder="Name" onfocusout="myFunctionout()" onfocus="myFunction()" id="name_email" class="inpt">
+			<input type="password" name="password" onfocusout="myFunctionout()" onfocus="myFunction()" placeholder="Password" id="password_login" class="inpt">
 			<a  type="password" href="javascript:void(0);" class="forgot_pass">forgot your password?</a>
 			<div style="margin-top:5%;" class="mobile-grid-100"></div><a href="javascript:void(0);" onclick="user_login_function()" class="log_in">Login</a>
 		</div>
 
-		<div class="green_blank"></div>
+		<!-- <div class="green_blank"></div> -->
 	<script type="text/javascript">
 			$('.menu_click').click(function(){
 				event.stopPropagation();
