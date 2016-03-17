@@ -84,7 +84,7 @@ var app = {
 
 function getImage(type) {
     $("#home").fadeOut();
-    $("#select_color").fadeIn();
+    $("#loader").fadeIn();
     // navigator.camera.getPicture(onSuccess, onFail, { 
     //     quality: 50,
     //     destinationType: Camera.DestinationType.DATA_URL,
@@ -103,6 +103,8 @@ function getImage(type) {
             sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
         });
     }
+    $("#loader").fadeOut();
+    $("#select_color").fadeIn();
     $("#cameraImgdiv").css("opacity", "1");
 }
 

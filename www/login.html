@@ -91,10 +91,12 @@
 	                		Lockr.set('user_token', response.token);
 	                		token = response.token;
 	                		id = response.id;
-	                		$("#menu_saved, #menu_myselection, .logout_text").show();
+	                		$("#menu_saved, #menu_myselection").show();
 	                		$("#profile_image").css("background", "url('"+response.profile+"') no-repeat");
 	                		$("#profile_bg").css("background", "url('"+response.profile+"') no-repeat");
 	                		$(".login_text").hide();
+	                		$("#user_acc_name").text(response.name);
+	                		$(".logout_text").show();
 			        		if (lam_share_set_get != '') {
 			        			if (function_type == 'set') {
 				        			$.ajax({
@@ -115,13 +117,15 @@
 						                }
 				        			})
 			        			}
+			        			$("#saved").fadeIn();
 			        		} else if (form_status == 'yes') {
-		                		$("#quote_name").val(response.data.name);
-		                		$("#quote_phone").val(response.data.phone);
-		                		$("#quote_email").val(response.data.email);
+		                		$("#quote_name").val(response.name);
+		                		$("#quote_phone").val(response.phone);
+		                		$("#quote_email").val(response.email);
 			        			$("#form").fadeIn();
+			        		} else {
+			        			$("#home").fadeIn();
 			        		}
-	                		$("#home").fadeIn();
 	                	} else {
 	                		alert("Account does not Exists for entered Email Id");
 	                		$("#login").fadeIn();
@@ -170,10 +174,12 @@
 	        		Lockr.set('user_token', response.token);
 	        		token = response.token;
 	        		id = response.id;
-	        		$("#menu_saved, #menu_myselection, .logout_text").show();
+	        		$("#menu_saved, #menu_myselection").show();
 	        		$("#profile_image").css("background", "url('"+response.profile+"') no-repeat");
 	        		$("#profile_bg").css("background", "url('"+response.profile+"') no-repeat");
 	        		$(".login_text").hide();
+	        		$("#user_acc_name").text(response.name);
+	        		$(".logout_text").show();
 	        		$("#login").fadeOut();
 	        		if (lam_share_set_get != '') {
 	        			if (function_type == 'set') {
@@ -197,9 +203,9 @@
 	            		$("#home").fadeIn();
 	        			lam_share_set_get = '';
 	        		} else if (form_status == 'yes') {
-                		$("#quote_name").val(response.data.name);
-                		$("#quote_phone").val(response.data.phone);
-                		$("#quote_email").val(response.data.email);
+                		$("#quote_name").val(response.name);
+                		$("#quote_phone").val(response.phone);
+                		$("#quote_email").val(response.email);
 	        			$("#form").fadeIn();
 	        		}
 	            },

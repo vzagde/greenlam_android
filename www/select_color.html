@@ -9,7 +9,8 @@
 		</div>
 		
 		<div style="overflow:hidden;" class="color_box mobile-grid-100 pad0">
-			<div data-sr="wait 0.1s and then ease-in-out 100px" id="cameraImgdiv" class="mobile-grid-100 posr pad0">
+			<!-- data-sr="wait 0.1s and then ease-in-out 100px" -->
+			<div id="cameraImgdiv" class="mobile-grid-100 posr pad0">
 				<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" class="wdh" id="cameraImg" onclick="getColor()" alt="" />
 				<img src="images/color-picker.png" class="c_p" id="clrpickr" alt="" />
 			</div>
@@ -24,10 +25,12 @@
 		        var canvas_image = document.getElementById("cameraImg");
 		        //var width = document.getElementById("cameraImg").width;
 		        //var height = document.getElementById("cameraImg").height;
+	            // this.canvas.getContext('2d').clearRect(0, 0, canvas_image.width, canvas_image.height);
 		        if(!canvas_image.canvas) {
 		            this.canvas = $('<canvas />')[0];
 		            this.canvas.width = canvas_image.width;
 		            this.canvas.height = canvas_image.height;
+		            this.canvas.getContext('2d').clearRect(0, 0, canvas_image.width, canvas_image.height);
 		            this.canvas.getContext('2d').drawImage(canvas_image, 0, 0, canvas_image.width, canvas_image.height);
 		        }
 		        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
@@ -137,13 +140,13 @@
 				$("#home").fadeIn();
 			}
 
-			function share_cam(id){
-				lam_share_set_get = id;
+			function share_cam(lam){
+				lam_share_set_get = lam;
 				$('.ovr_lay').fadeIn();
 			}
 
-			function set_cam(id){
-				lam_share_set_get = id;
+			function set_cam(lam){
+				lam_share_set_get = lam;
 				function_type = "set";
 				page_id = "#laminate_selector";
 				if (token == 'nothing') {
@@ -172,12 +175,12 @@
 	        			}
 	        			lam_share_set_get = '';
 	        		}
-	        		$("#home").fadeIn();
+	        		load_saved_laminates();
 				}
 			}
 
-			function get_cam(id, image, title, dec){
-				lam_share_set_get = id;
+			function get_cam(lam, image, title, dec){
+				lam_share_set_get = lam;
 				function_type = "get";
 				page_id = "#laminate_selector";
 				$("#laminate_selector").fadeOut();

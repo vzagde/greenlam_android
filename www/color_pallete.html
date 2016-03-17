@@ -120,13 +120,13 @@
 			}
 		}
 
-		function share(id){
-			lam_share_set_get = id;
+		function share(lam){
+			lam_share_set_get = lam;
 			$('.ovr_lay').fadeIn();
 		}
 
-		function set(id){
-			lam_share_set_get = id;
+		function set(lam){
+			lam_share_set_get = lam;
 			function_type = "set";
 			page_id = "#laminate_selector";
 			if (token == 'nothing') {
@@ -147,20 +147,18 @@
 			                    lam_id : lam_share_set_get,
 			                },
 			                success: function(response){
-			                	if (response == 'response') {
-			                		alert("We have saved Laminate in your profile");
-			                	}
+		                		alert("We have saved Laminate in your profile");
 			                }
 	        			})
         			}
         			lam_share_set_get = '';
         		}
-        		$("#home").fadeIn();
+        		load_saved_laminates();
 			}
 		}
 
-		function get(id){
-			lam_share_set_get = id;
+		function get(lam){
+			lam_share_set_get = lam;
 			function_type = "get";
 			page_id = "#laminate_selector";
 			$("#laminate_selector").fadeOut();
