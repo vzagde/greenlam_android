@@ -15,8 +15,8 @@
 		<img src="images/login-hr-line.png" class="or_line" alt="" />
 		
 		<div class="mobile-grid-80 posr mobile-prefix-10">
-			<input type="text" name="name" placeholder="Name" onfocusout="myFunctionout()" onfocus="myFunction()" id="name_email" class="inpt">
-			<input type="password" name="password" onfocusout="myFunctionout()" onfocus="myFunction()" placeholder="Password" id="password_login" class="inpt">
+			<input type="text" name="name" placeholder="Name"  id="name_email" class="inpt">
+			<input type="password" name="password"  placeholder="Password" id="password_login" class="inpt">
 			<a  type="password" href="javascript:void(0);" class="forgot_pass">forgot your password?</a>
 			<div style="margin-top:5%;" class="mobile-grid-100"></div><a href="javascript:void(0);" onclick="user_login_function()" class="log_in">Login</a>
 		</div>
@@ -108,22 +108,23 @@
 						                    lam_id : lam_share_set_get,
 						                },
 						                success: function(response){
-						                	if (response == 'response') {
+						                	if (response == 'Success') {
 						                		alert("We have saved Laminate in your profile");
 						                	}
+						        			lam_share_set_get = '';
 						                }
 				        			})
 			        			}
-			        			lam_share_set_get = '';
-		                		$("#home").fadeIn();
 			        		} else if (form_status == 'yes') {
 		                		$("#quote_name").val(response.data.name);
 		                		$("#quote_phone").val(response.data.phone);
 		                		$("#quote_email").val(response.data.email);
 			        			$("#form").fadeIn();
 			        		}
+	                		$("#home").fadeIn();
 	                	} else {
 	                		alert("Account does not Exists for entered Email Id");
+	                		$("#login").fadeIn();
 	                	}
 	                }
 	            })
@@ -193,8 +194,8 @@
 				                }
 		        			})
 	        			}
-	        			lam_share_set_get = '';
 	            		$("#home").fadeIn();
+	        			lam_share_set_get = '';
 	        		} else if (form_status == 'yes') {
                 		$("#quote_name").val(response.data.name);
                 		$("#quote_phone").val(response.data.phone);

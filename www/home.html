@@ -161,6 +161,8 @@
 				function_type = "set";
 				$(".main_section").hide();
 				page_id = "#laminate_selector";
+				console.log(id);
+				console.log(lam_share_set_get);
 				if (token == 'nothing') {
 					$(".main_section").hide();
 					$("#login").fadeIn();
@@ -174,12 +176,12 @@
 				                crossDomain: true,
 				                dataType: 'JSON',
 				                data: {
-				                    user_id : response.id,
+				                    user_id : id,
 				                    type : "Set",
 				                    lam_id : lam_share_set_get,
 				                },
 				                success: function(response){
-				                	if (response == 'response') {
+				                	if (response == 'Success') {
 				                		alert("We have saved Laminate in your profile");
 				                	}
 				                }
@@ -187,8 +189,8 @@
 	        			}
 	        			lam_share_set_get = '';
 	        		}
-	        		$("#home").fadeIn();
 				}
+	    		$("#home").fadeIn();
 			}
 
 			function get_cat(id, image, title, dec){

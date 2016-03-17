@@ -46,8 +46,8 @@
                     <option value='Home Owner'>Home Owner</option>
                     <option value='Other'>Other</option>
 				</select>
-				<input data-sr="wait 0.6s and then ease-in-out 100px" type="text" onfocusout="myFunctionout()" onfocus="myFunction()" name="number" placeholder="Contact No." id="quote_phone" class="inpt">
-				<input data-sr="wait 0.1s and then ease-in-out 100px" type="email" onfocusout="myFunctionout()" onfocus="myFunction()" name="email" placeholder="Email ID" class="inpt" id="quote_email">
+				<input data-sr="wait 0.6s and then ease-in-out 100px" type="text" name="number" placeholder="Contact No." maxlength="10" id="quote_phone" class="inpt">
+				<input data-sr="wait 0.1s and then ease-in-out 100px" type="email" name="email" placeholder="Email ID" class="inpt" id="quote_email">
 				<p data-sr="wait 0.3s and then ease-in-out 100px" class="i_would" style="clear: both">I would prefer to be contacted via</p>
 				<div data-sr="wait 0.4s and then ease-in-out 100px" class="radio_buttons" style="margin-bottom:5%;" class="mobile-grid-100">
 					<input style="margin:3%;" type="radio" id="r1" name="r1" value=""><span style="margin-right:2%;" class="phone_text">Phone Call</span>
@@ -57,7 +57,7 @@
 		</div>
 		
 		<div style="background:#1245a3; padding:2% 0;" class="mobile-grid-100"><a style="position:relative;" onclick="submit_quote_form()" href="javascript:void(0);" class="proceed_click">Done</a></div>
-		<div style="position:relative;" class="green_blank"></div>
+		<!-- <div style="position:relative;" class="green_blank"></div> -->
 	<script type="text/javascript">
 		var quote_type = '';
 		var contact_type = '';
