@@ -17,8 +17,7 @@
  * under the License.
  */
 
- function initPushwoosh()
-{
+function initPushwoosh() {
     var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
  
     //set push notifications handler

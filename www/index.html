@@ -95,7 +95,7 @@
 					<li class="menu_li"><a class="menu_a" id="menu_feedback" href="javascript:void(0);"><img class="menu_image" src="images/feedback.png" alt="" /> Write Feedback</a></li>
 					<!-- <li class="menu_li"><a class="menu_a" id="menu_settings" href="javascript:void(0);"><img class="menu_image" src="images/setting-icon.png" alt="" /> Settings</a></li> -->
 					<li class="menu_li"><a class="menu_a" id="menu_aboutus" href="javascript:void(0);"><img class="menu_image" src="images/about_us.png" alt="" /> About Us</a></li>
-					<li class="menu_li"><a class="menu_a" id="menu_talktous" onclick="callUS()" href="javascript:void(0);"><img class="menu_image" src="images/talk-to-us.png" alt="" /> Talk to Us</a></li>
+					<li class="menu_li"><a class="menu_a" id="menu_talktous" href="javascript:void(0);"><img class="menu_image" src="images/talk-to-us.png" alt="" /> Talk to Us</a></li>
 				</ul>
 			</div>
 		</div>
@@ -173,6 +173,9 @@
 	    	$(".main_section").fadeOut();
 			$('.menu').animate({ "left": "-90%" }, 100 );
 			$("#home").fadeIn();
+			$("#profile_image, #profile_bg").css("background", "url('http://casaestilo.in/greenlam_app_admin/assets/images/default-profile.png') no-repeat");
+			$("#profile_image, #profile_bg").css("background-size", "cover");
+			$("#profile_image, #profile_bg").css("background-position", "center");
 		})
 
 	    function backdisabled(){
@@ -224,11 +227,12 @@
 			load_offers();
 	    })
 
-	  //   $("#menu_talktous").click(function(){
-	  //   	$(".main_section").fadeOut();
-			// $('.menu').animate({ "left": "-90%" }, 100 );
-			// $("#contact").fadeIn();
-	  //   })
+	    $("#menu_talktous").click(function(){
+	    	document.addEventListener("backbutton", onBackKeyDown, false);
+	    	$(".main_section").fadeOut();
+			$('.menu').animate({ "left": "-90%" }, 100 );
+			$("#contact").fadeIn();
+	    })
 
 	    $("#menu_faqs").click(function(){
 	    	document.addEventListener("backbutton", onBackKeyDown, false);
